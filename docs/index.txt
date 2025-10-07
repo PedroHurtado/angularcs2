@@ -1,0 +1,7 @@
+viewChild->Decorador->signal
+	Component->prop->metodo
+ViewContainerRef->con componente no dinamicos
+		  carga de componentes dinamicos async
+
+new sintax templates
+signal->Angular 18
