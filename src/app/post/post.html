@@ -1,0 +1,17 @@
+<ul>
+  @for (item of data; track $index) {
+    <li>{{item}}</li>
+  }
+</ul>
+
+@defer (on viewport) {
+  <app-post-comments />
+} @loading {
+  <div>...loading</div>
+}
+@error {
+  <div>se ha producido un error cargando los comentarios</div>
+}
+@placeholder {
+  <div>Comentarios</div>
+}
