@@ -4,9 +4,10 @@ import {Parent} from './parent/parent'
 import { Counter } from './counter/counter';
 import { Timer } from './timer/timer';
 import { InputParent } from './input-parent/input-parent';
+import { Calendar } from './calendar/calendar';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Parent,Counter, Timer, InputParent],
+  imports: [RouterOutlet,Parent,Counter, Timer, InputParent,Calendar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,17 @@
+:host{
+  display: grid;
+  grid-template-columns: repeat(7,1.5rem);
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.day{
+  display:flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.day:hover{
+  outline: 1px solid blue;
+}

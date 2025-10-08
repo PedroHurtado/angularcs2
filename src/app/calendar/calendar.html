@@ -1,0 +1,11 @@
+@for (calendarDay of calendarDays; track calendarDay.date;let index=$index) {
+<div [attr.data-index]="index" class="day">{{calendarDay.day}}</div>
+<!--
+    <div class="day" (click)="handlerClick($event,calendarDay.day)">{{calendarDay.day}}</div>
+    -->
+}
+
+<!--
+<div class="calendar" (click)="handlerClickEventDelegation($event)"></div>
+</div>
+-->
