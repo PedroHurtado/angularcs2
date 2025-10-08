@@ -12,7 +12,7 @@ export class InputChild {
 
   constructor(){
     effect(()=>{
-      console.log(`name:${this.name()}`)
+      console.log(`Effect->Child Component->${this.name()}`)
     })
   }
 }

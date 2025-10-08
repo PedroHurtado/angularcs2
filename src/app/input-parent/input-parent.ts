@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, DoCheck,ChangeDetectorRef, effect } from '@angular/core';
 import { InputChild } from '../input-child/input-child';
 
 @Component({
@@ -7,13 +7,37 @@ import { InputChild } from '../input-child/input-child';
   templateUrl: './input-parent.html',
   styleUrl: './input-parent.css'
 })
-export class InputParent {
-  //name="Pedro"
-  handlerClick(){
-    this.name.set("Pedro Hurtado")
-    //this.name ="Pedro Hurtado"
+export class InputParent implements DoCheck {
+  name = signal("Pedro")
+  //name:string ="Pedro"
+  private _renderCounter: number = 0
+
+  ngDoCheck(): void {
+    this._renderCounter++
+    console.log(`RenderCounter ${this._renderCounter}`)
   }
 
-  name = signal('Pedro')
+  handlerClick() {
+    //this.name = "Pedro Hurtado"
+    this.name.set( "Pedro Hurtado")
+  }
+  constructor(private changeDetector:ChangeDetectorRef){
+
+    effect(()=>{
+      //console.log(`Parent Component->${this.name()}`)
+      console.log(`Effect->Parent Component->${this.name}`)
+    })
+
+    Promise.resolve().then(()=>{
+      //this.name="Pedro Hurtado Candel"
+      //this.changeDetector.markForCheck()
+      this.name.set("Pedro Hurtado Candel")
+
+    })
+
+  }
+
+
+
 
 }
