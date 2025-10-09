@@ -41,7 +41,6 @@ export class ParentContainer implements AfterViewInit, OnDestroy {
 
     const ref = this.contenedor().createComponent(ChildDynamic)
     ref.setInput('value', this.counter)
-    //ref.instance.value = this.counter
     this.currentSuscription = ref.instance.changeData.subscribe((data: number) => {
       console.log('Dato recibido del hijo:', data);
     });
