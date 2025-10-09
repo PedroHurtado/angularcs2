@@ -1,7 +1,24 @@
+
 <app-post/>
+
 <app-calendar/>
 <app-input-parent/>
 <app-counter/>
+@defer (on viewport) {
+  <app-parent-container/>
+}
+@loading {
+  <div>...loading</div>
+}
+@error {
+  <div>se ha producido un error cargando los comentarios</div>
+}
+@placeholder {
+  <div>Comentarios</div>
+}
+
+
+
 <app-timer/>
 <app-parent>
   <!--

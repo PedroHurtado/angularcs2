@@ -6,9 +6,13 @@ import { Timer } from './timer/timer';
 import { InputParent } from './input-parent/input-parent';
 import { Calendar } from './calendar/calendar';
 import { Post } from './post/post';
+import { ParentContainer } from './parent-container/parent-container';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Parent,Counter, Timer, InputParent,Calendar, Post],
+  imports: [RouterOutlet,Parent,Counter, Timer,
+    InputParent,Calendar, Post,
+    ParentContainer
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
