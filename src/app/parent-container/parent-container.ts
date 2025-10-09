@@ -12,16 +12,17 @@ export class ParentContainer implements AfterViewInit, OnDestroy {
   contenedor = viewChild.required('container', { read: ViewContainerRef });
   counter = signal(0)
 
-  private componentRef?: ComponentRef<any>;
+  //private componentRef?: ComponentRef<any>;
+
   private currentSuscription:any
 
   constructor() {
-    effect(() => {
+    /*effect(() => {
       const value = this.counter()
       // el efecto si está esta linea antes
       // de la evaluación de compomentRef
-      this.componentRef?.setInput('value', value)
-    })
+      this.componentRef?.setInput('value', this.counter)
+    })*/
   }
   ngOnDestroy(): void {
     this.removeSuscrition()
@@ -38,9 +39,10 @@ export class ParentContainer implements AfterViewInit, OnDestroy {
 
     const { ChildDynamic } = await import('../child-dynamic/child-dynamic')
 
-    this.componentRef = this.contenedor().createComponent(ChildDynamic)
-    this.componentRef.setInput('value', this.counter())
-    this.currentSuscription = this.componentRef.instance.changeData.subscribe((data: number) => {
+    const ref = this.contenedor().createComponent(ChildDynamic)
+    ref.setInput('value', this.counter)
+    //ref.instance.value = this.counter
+    this.currentSuscription = ref.instance.changeData.subscribe((data: number) => {
       console.log('Dato recibido del hijo:', data);
     });
 
